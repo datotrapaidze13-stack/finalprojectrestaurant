@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}მენიუ{% endblock %}
+
+{% block hero %}
+<section class="hero">
+  <h1>სწრაფი და მარტივი ონლაინ შეკვეთა - აუცილებლად სცადეთ!</h1>
+</section>
+{% endblock %}
+
+{% block content %}
+<h2 class="section-title">კატეგორიები</h2>
+<nav class="categories">
+  <a href="{% url 'menu:dish_list' %}" class="{% if not selected_category %}active{% endif %}">ყველა</a>
+  {% for category in categories %}
+    {# category.id რიცხვია, selected_category ტექსტი, ამიტომ ვადარებთ |stringformat-ით #}
+    <a href="?category={{ category.id }}" class="{% if selected_category == category.id|stringformat:'s' %}active{% endif %}">{{ category.name }}</a>
+  {% endfor %}
+</nav>
+
+<div class="menu-layout">
+  {# ფილტრების ფორმა: method="get" ნიშნავს, რომ არჩეული ფილტრები მისამართში ჩაიწერება #}
+  <aside class="filters">
+    <form method="get">
+      {% if selected_category %}<input type="hidden" name="category" value="{{ selected_category }}">{% endif %}
+      <h3>ფილტრი</h3>
+
+      <label for="spiciness">სიცხარე</label>
+      <select id="spiciness" name="spiciness">
+        <option value="">არ არის არჩეული</option>
+        {% for level in spiciness_levels %}
+          <option value="{{ level }}" {% if selected_spiciness == level %}selected{% endif %}>{{ level }}{% if level == '0' %} (არ არის ცხარე){% endif %}</option>
+        {% endfor %}
+      </select>
+
+      <label class="checkbox"><input type="checkbox" name="no_nuts" {% if request.GET.no_nuts %}checked{% endif %}> ნიგვზის გარეშე</label>
+      <label class="checkbox"><input type="checkbox" name="vegetarian" {% if request.GET.vegetarian %}checked{% endif %}> მხოლოდ ვეგეტარიანული</label>
+
+      <button type="submit" class="button">გაფილტვრა</button>
+      <a class="button button-outline" href="{% url 'menu:dish_list' %}{% if selected_category %}?category={{ selected_category }}{% endif %}">გასუფთავება</a>
+    </form>
+  </aside>
+
+  {# კერძების ქარდები #}
+  <section class="dishes">
+    {% for dish in dishes %}
+      <article class="card">
+        {% if dish.image %}<img src="{% static dish.image %}" alt="{{ dish.name }}" loading="lazy">{% endif %}
+        <h3>{{ dish.name }}</h3>
+        <p>სიცხარე: <strong>{{ dish.spiciness }}</strong> / 4</p>
+        <p class="tags">
+          <span class="tag {% if dish.nuts %}tag-on{% endif %}">ნიგვზიანი</span>
+          <span class="tag {% if dish.vegetarian %}tag-on{% endif %}">ვეგეტარიანული</span>
+        </p>
+        <div class="card-footer">
+          <strong class="price">{{ dish.price }} ₾</strong>
+          {% if user.is_authenticated %}
+            {# csrf_token: Django-ს დაცვა, რომ ფორმა სხვა საიტიდან არ გაიგზავნოს #}
+            <form method="post" action="{% url 'cart:add' dish.id %}">
+              {% csrf_token %}
+              <button type="submit" class="button button-small">კალათაში დამატება</button>
+            </form>
+          {% else %}
+            {# შეუსვლელს შესვლის გვერდზე გადავიყვანთ; next = შესვლის შემდეგ ამავე გვერდზე დაბრუნება #}
+            <a class="button button-small" href="{% url 'login' %}?next={{ request.get_full_path|urlencode }}">კალათაში დამატება</a>
+          {% endif %}
+        </div>
+      </article>
+    {% empty %}
+      <p class="empty">ამ ფილტრებით კერძი ვერ მოიძებნა.</p>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}

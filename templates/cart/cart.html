@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}კალათა{% endblock %}
+
+{% block content %}
+<h1>შეკვეთების კალათა</h1>
+
+{% if items %}
+  <table class="table">
+    <thead>
+      <tr><th colspan="2">კერძი</th><th>ფასი</th><th>რაოდენობა</th><th>ჯამი</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+        <tr>
+          <td class="thumb">{% if item.dish.image %}<img src="{% static item.dish.image %}" alt="">{% endif %}</td>
+          <td>{{ item.dish.name }}</td>
+          <td>{{ item.dish.price }} ₾</td>
+          <td>
+            <div class="quantity">
+              <form method="post" action="{% url 'cart:decrease' item.id %}">
+                {% csrf_token %}
+                <button class="button button-small button-outline" title="ერთით ნაკლები">−</button>
+              </form>
+              <span>{{ item.quantity }}</span>
+              <form method="post" action="{% url 'cart:increase' item.id %}">
+                {% csrf_token %}
+                <button class="button button-small button-outline" title="ერთით მეტი">+</button>
+              </form>
+            </div>
+          </td>
+          <td>{{ item.subtotal }} ₾</td>
+          <td>
+            <form method="post" action="{% url 'cart:remove' item.id %}">
+              {% csrf_token %}
+              <button class="link-button">წაშლა</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="right"><strong>სულ გადასახდელი</strong></td>
+        <td colspan="2"><strong class="price">{{ total }} ₾</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="actions">
+    <a class="button button-outline" href="{% url 'menu:dish_list' %}">მენიუში დაბრუნება</a>
+  </div>
+{% else %}
+  <p class="empty">კალათა ცარიელია. <a href="{% url 'menu:dish_list' %}">გადადით მენიუში</a> და დაამატეთ კერძები.</p>
+{% endif %}
+{% endblock %}

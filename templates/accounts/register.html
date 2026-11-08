@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}რეგისტრაცია{% endblock %}
+
+{% block content %}
+<div class="auth-box">
+  <h1>რეგისტრაცია</h1>
+
+  <form method="post" class="form" novalidate>
+    {% csrf_token %}
+    {# form.as_p: Django ფორმის ყველა ველს თავად ხატავს (label + input + შეცდომები) #}
+    {{ form.as_p }}
+    <button type="submit" class="button">რეგისტრაცია</button>
+  </form>
+
+  <p>უკვე გაქვთ ანგარიში? <a href="{% url 'login' %}">შედით</a></p>
+</div>
+{% endblock %}

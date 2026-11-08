@@ -1,0 +1,409 @@
+[
+  {
+    "model": "menu.category",
+    "pk": 1,
+    "fields": {
+      "name": "სალათები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 2,
+    "fields": {
+      "name": "სუპები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 3,
+    "fields": {
+      "name": "ქათმის კერძები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 4,
+    "fields": {
+      "name": "საქონლის ხორცის კერძები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 5,
+    "fields": {
+      "name": "ზღვის პროდუქტები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 6,
+    "fields": {
+      "name": "ბოსტნეულის კერძები"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 7,
+    "fields": {
+      "name": "წასახემსებელი"
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 8,
+    "fields": {
+      "name": "გარნირი"
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "ლააბ კაი - ქათმის სალათი",
+      "price": "10.00",
+      "image": "images/dishes/laab_kai_chicken_salad.png",
+      "spiciness": 2,
+      "nuts": true,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "სომ ტამი - პაპაიას სალათი",
+      "price": "9.50",
+      "image": "images/dishes/som_tam_papaya_salad.png",
+      "spiciness": 0,
+      "nuts": false,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "name": "ტომ იამი ქათმით",
+      "price": "7.00",
+      "image": "images/dishes/tom_yam.png",
+      "spiciness": 3,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "ტომ ხა ქათმით",
+      "price": "7.00",
+      "image": "images/dishes/tom_kha.png",
+      "spiciness": 3,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "ტომ ხა კრევეტებით",
+      "price": "8.00",
+      "image": "images/dishes/tom_kha.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "ტომ იამი კრევეტებით",
+      "price": "8.00",
+      "image": "images/dishes/tom_yam.png",
+      "spiciness": 4,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "ტომ იამი ვეგეტარიანული",
+      "price": "7.00",
+      "image": "images/dishes/tom_yam.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 8,
+    "fields": {
+      "category": 2,
+      "name": "ტომ ხა ვეგეტარიანული",
+      "price": "7.00",
+      "image": "images/dishes/tom_kha.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "name": "ტკბილ-მჟავე ქათამი",
+      "price": "14.00",
+      "image": "images/dishes/sweet_n_sour.png",
+      "spiciness": 2,
+      "nuts": true,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 10,
+    "fields": {
+      "category": 3,
+      "name": "ქათამი ქეშიუს თხილით",
+      "price": "14.00",
+      "image": "images/dishes/chicken_cashew.png",
+      "spiciness": 1,
+      "nuts": true,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 11,
+    "fields": {
+      "category": 3,
+      "name": "კაი სი იუ - ლაფშა ქათმით",
+      "price": "14.00",
+      "image": "images/dishes/kai_see_ew.png",
+      "spiciness": 4,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 12,
+    "fields": {
+      "category": 4,
+      "name": "მასამანი საქონლის ხორცით",
+      "price": "14.50",
+      "image": "images/dishes/beef_massaman.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 13,
+    "fields": {
+      "category": 5,
+      "name": "ჩუ ჩი ზღვის პროდუქტებით",
+      "price": "16.00",
+      "image": "images/dishes/chu_chee.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 14,
+    "fields": {
+      "category": 5,
+      "name": "პენანგის კრევეტები",
+      "price": "16.00",
+      "image": "images/dishes/red_curry.png",
+      "spiciness": 4,
+      "nuts": true,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 15,
+    "fields": {
+      "category": 6,
+      "name": "მწვანე კარი ბოსტნეულით",
+      "price": "12.50",
+      "image": "images/dishes/green_curry.png",
+      "spiciness": 0,
+      "nuts": true,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 16,
+    "fields": {
+      "category": 6,
+      "name": "ტოფუ ქეშიუს თხილით",
+      "price": "12.50",
+      "image": "images/dishes/tofu_cashew.png",
+      "spiciness": 0,
+      "nuts": true,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 17,
+    "fields": {
+      "category": 6,
+      "name": "წითელი კარი ბოსტნეულით",
+      "price": "12.50",
+      "image": "images/dishes/red_curry_vega.png",
+      "spiciness": 4,
+      "nuts": false,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 18,
+    "fields": {
+      "category": 6,
+      "name": "კრაპაუ ტოფუთი",
+      "price": "12.50",
+      "image": "images/dishes/krapau_vega.png",
+      "spiciness": 0,
+      "nuts": false,
+      "vegetarian": true
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 19,
+    "fields": {
+      "category": 7,
+      "name": "კრევეტის ჩიფსები",
+      "price": "2.50",
+      "image": "images/dishes/kroepoek.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 20,
+    "fields": {
+      "category": 7,
+      "name": "თევზის კატლეტები",
+      "price": "6.50",
+      "image": "images/dishes/fish_cakes.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 21,
+    "fields": {
+      "category": 7,
+      "name": "ქათმის სატაი",
+      "price": "6.50",
+      "image": "images/dishes/sate.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 22,
+    "fields": {
+      "category": 7,
+      "name": "სატაის სოუსი",
+      "price": "1.50",
+      "image": "images/dishes/satesaus.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 23,
+    "fields": {
+      "category": 7,
+      "name": "სპრინგ როლები კრევეტით",
+      "price": "6.50",
+      "image": "images/dishes/koong_hom_pha.png",
+      "spiciness": 3,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 24,
+    "fields": {
+      "category": 7,
+      "name": "მინი ვეგეტარიანული სპრინგ როლები",
+      "price": "6.50",
+      "image": "images/dishes/mini_vega_springrolls.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 25,
+    "fields": {
+      "category": 7,
+      "name": "სპრინგ როლები ქათმით",
+      "price": "6.50",
+      "image": "images/dishes/chicken_loempias.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 26,
+    "fields": {
+      "category": 8,
+      "name": "ტაილანდური შემწვარი ბრინჯი",
+      "price": "7.50",
+      "image": "images/dishes/fried_rice.png",
+      "spiciness": 2,
+      "nuts": false,
+      "vegetarian": false
+    }
+  },
+  {
+    "model": "menu.dish",
+    "pk": 27,
+    "fields": {
+      "category": 8,
+      "name": "ახალი კრევეტის ჩიფსები",
+      "price": "2.50",
+      "image": "images/dishes/kroepoek.png",
+      "spiciness": 1,
+      "nuts": false,
+      "vegetarian": false
+    }
+  }
+]

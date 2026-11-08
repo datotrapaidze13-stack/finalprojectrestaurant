@@ -1,0 +1,51 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %} | Step Ordering</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  {# ჰედერი: ყველა გვერდზე ერთნაირია, ამიტომ აქ წერია ერთხელ #}
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="{% url 'menu:dish_list' %}">Step <span>Ordering</span></a>
+      <nav class="nav">
+        <a href="{% url 'menu:dish_list' %}">მენიუ</a>
+        {# user.is_authenticated: შესულია თუ არა მომხმარებელი საიტზე #}
+        {% if user.is_authenticated %}
+          <span class="user-email">{{ user.email }}</span>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="link-button nav-button">გამოსვლა</button>
+          </form>
+          <a class="cart-link" href="{% url 'cart:detail' %}">
+            კალათა <span class="badge">{{ cart_count }}</span>
+          </a>
+        {% else %}
+          <a href="{% url 'login' %}">შესვლა</a>
+          <a class="cart-link" href="{% url 'register' %}">რეგისტრაცია</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  {% block hero %}{% endblock %}
+
+  <main class="container">
+    {# შეტყობინებები, მაგ. „კერძი დაემატა კალათაში“ #}
+    {% for message in messages %}
+      <div class="message message-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+
+    {# აქ ჩაჯდება კონკრეტული გვერდის შიგთავსი #}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Step Ordering · ონლაინ რესტორანი · Python &amp; Django საკურსო პროექტი</div>
+  </footer>
+</body>
+</html>

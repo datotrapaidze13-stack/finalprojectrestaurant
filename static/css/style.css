@@ -1,0 +1,125 @@
+/* ფერები ერთ ადგილას, რომ შეცვლა ადვილი იყოს */
+:root {
+  --red: #e0151a;
+  --red-dark: #b31014;
+  --text: #222;
+  --muted: #777;
+  --border: #e3e3e3;
+  --bg: #f7f7f7;
+  --card: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Georgian", "Segoe UI", Sylfaen, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a { color: var(--red); }
+
+.container { max-width: 1150px; margin: 0 auto; padding: 0 16px; }
+main.container { padding-top: 24px; padding-bottom: 48px; min-height: 60vh; }
+
+/* ჰედერი */
+.site-header { background: #222; color: #fff; position: sticky; top: 0; z-index: 10; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.logo { color: #fff; font-size: 26px; font-weight: 700; font-style: italic; text-decoration: none; }
+.logo span { font-size: 18px; font-weight: 400; }
+.nav { display: flex; align-items: center; gap: 18px; }
+.nav a { color: #fff; text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.cart-link { background: var(--red); padding: 6px 12px; border-radius: 4px; }
+.badge { background: #fff; color: var(--red); border-radius: 10px; padding: 0 7px; font-weight: 700; font-size: 13px; }
+
+/* დიდი სურათი მთავარ გვერდზე */
+.hero {
+  height: 260px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  color: #fff; padding: 0 16px;
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+              url("../images/hero.jpg") center/cover;
+}
+.hero h1 { font-size: 30px; max-width: 760px; }
+
+/* ღილაკები */
+.button {
+  display: inline-block; border: 2px solid var(--red); background: var(--red); color: #fff;
+  padding: 9px 18px; border-radius: 4px; font: inherit; font-size: 15px; cursor: pointer; text-decoration: none; text-align: center;
+}
+.button:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.button-outline { background: #fff; color: var(--red); }
+.button-outline:hover { background: var(--red); color: #fff; }
+.button-small { padding: 4px 10px; font-size: 14px; }
+.link-button { background: none; border: none; padding: 0; font: inherit; cursor: pointer; color: var(--red); }
+.link-button:hover { text-decoration: underline; }
+
+.nav form { margin: 0; }
+.nav-button { color: #fff; }
+.user-email { color: #bbb; font-size: 14px; }
+
+/* რეგისტრაციისა და შესვლის ფორმები */
+.auth-box { max-width: 400px; margin: 20px auto; background: var(--card); padding: 24px 28px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.auth-box h1 { margin-top: 0; }
+.form p { margin: 0 0 14px; }
+.form label { display: block; font-weight: 600; margin-bottom: 4px; }
+.form input { width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 4px; font: inherit; }
+.form .button { width: 100%; }
+.helptext { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+.errorlist { color: var(--red); margin: 0 0 6px; padding-left: 18px; font-size: 14px; }
+.hint { color: var(--muted); }
+
+/* შეტყობინებები */
+.message { padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; background: #e8f5e9; border-left: 4px solid #2e7d32; }
+.message-info { background: #e3f2fd; border-color: #1565c0; }
+
+/* მენიუს გვერდი */
+.section-title { text-align: center; font-size: 30px; }
+.categories {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px;
+  border-bottom: 2px solid var(--red); padding-bottom: 12px; margin-bottom: 24px;
+}
+.categories a { color: var(--text); text-decoration: none; padding: 4px 0; }
+.categories a.active, .categories a:hover { color: var(--red); font-weight: 600; }
+
+.menu-layout { display: grid; grid-template-columns: 230px 1fr; gap: 24px; align-items: start; }
+.filters { background: var(--card); padding: 16px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.08); position: sticky; top: 80px; }
+.filters h3 { margin-top: 0; }
+.filters label { display: block; margin: 12px 0 4px; font-size: 14px; }
+.filters label.checkbox { display: flex; gap: 8px; align-items: center; }
+.filters select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 4px; font: inherit; }
+.filters .button { width: 100%; margin-top: 12px; }
+
+.dishes { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+.card { background: var(--card); border-radius: 6px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; flex-direction: column; text-align: center; }
+.card img { width: 100%; height: 170px; object-fit: contain; }
+.card h3 { margin: 10px 0 6px; font-size: 17px; }
+.card p { margin: 4px 0; font-size: 14px; color: var(--muted); }
+.card-footer { margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.price { color: var(--red); font-size: 18px; white-space: nowrap; }
+/* ნიგვზიანი/ვეგეტარიანული: მწვანე = კი, გადახაზული ნაცრისფერი = არა */
+.tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px; border: 1px solid var(--border); color: #bbb; text-decoration: line-through; }
+.tag-on { color: #2e7d32; border-color: #2e7d32; text-decoration: none; }
+.empty { color: var(--muted); }
+
+/* კალათის ცხრილი */
+.table { width: 100%; border-collapse: collapse; background: var(--card); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.table th, .table td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.table th { background: #fafafa; }
+.table .thumb img { height: 50px; }
+.right { text-align: right !important; }
+.quantity { display: flex; align-items: center; gap: 10px; }
+.actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px; }
+
+.site-footer { background: #222; color: #aaa; padding: 18px 0; font-size: 14px; }
+
+/* პატარა ეკრანები (ტელეფონი) */
+@media (max-width: 760px) {
+  .menu-layout { grid-template-columns: 1fr; }
+  .filters { position: static; }
+  .hero h1 { font-size: 22px; }
+  .table { font-size: 14px; }
+  .table .thumb { display: none; }
+}
